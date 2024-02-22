@@ -52,6 +52,7 @@ function viewLibrary(){
 function inputPopup(){
     inputBackgroundBlur.classList.toggle("show");
     inputContainer.classList.toggle("show");
+    bookNameInput.focus();
 };
 
 function emptyInputs(){
@@ -60,11 +61,6 @@ function emptyInputs(){
     bookPageInput.value = "";
     bookReadTrueInput.checked = true;
 };
-
-function addBookInTheSelf(obj){
-    
-};
-
 
 function getInput(){
     let tempBook = new book(bookNameInput.value,bookAuthorInput.value, +bookPageInput.value, document.querySelector('input[name="BookRead"]:checked').value);
@@ -91,12 +87,24 @@ function getInput(){
     bookOptions.className = "book-options";
 
     let bookRead = document.createElement("h1");
+    bookRead.textContent = document.querySelector('input[name="BookRead"]:checked').getAttribute('data-value');
     bookRead.className = "book-read";
-    bookRead.textContent = "Read";
+    bookRead.addEventListener('click', ()=>{
+        if(bookRead.textContent == "Read"){
+            bookRead.textContent = "Unread";
+            bookHaveRead.textContent = "Have Read : False";
+        }else{
+            bookRead.textContent = "Read";
+            bookHaveRead.textContent = "Have Read : True";
+        }
+    });
     
     let bookDelete = document.createElement("h1");
     bookDelete.className = "book-delete";
     bookDelete.textContent = "Delete";
+    bookDelete.addEventListener('click', () =>{
+        books.removeChild(bookContainer);
+    });
 
     bookOptions.appendChild(bookRead);
     bookOptions.appendChild(bookDelete);
@@ -118,15 +126,8 @@ function getInput(){
 addBooks.addEventListener('click', inputPopup);
 
 inputConfirm.addEventListener('click', getInput);
-inputCancel.addEventListener('click', inputPopup);
-
-
-// let book1 = new book("Book1","Author1", "Title1", 50, true);
-// let book2 = new book("Book2","Author2", "Title2", 70, false);
-// let book3 = new book("Book3","Author3", "Title3", 60, true);
-
-// addToLibrary(book1);
-// addToLibrary(book2);
-// addToLibrary(book3);
-
-// viewLibrary();
+inputCancel.addEventListener('click', ()=> {
+    inputPopup();
+    emptyInputs();
+    bookNameInput.blur();
+});
