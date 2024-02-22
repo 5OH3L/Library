@@ -132,6 +132,7 @@ div#blurBackground.show{
     column-gap: 2rem;
     row-gap: 1rem;
     height: 80vh;
+    font-size: .9rem;
 }
 .book{
     background-color: white;
