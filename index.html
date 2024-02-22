@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/utils.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Library</title>
+</head>
+<body>
+    <div id="input">
+
+        <h1 id="enterBookDetails">Enter Book Details</h1>
+        
+        <div class="inputs input1">
+            <label for="book-name-input">Book Name : </label>
+            <input type="text" name="Book Name" id="book-name-input">
+        </div>
+
+        <div class="inputs input2">
+            <label for="book-author-input">Book Author : </label>
+            <input type="text" name="Book Author" id="book-author-input">
+        </div>
+
+        <div class="inputs input3">
+            <label for="book-page-input">Book Pages : </label>
+            <input type="number" name="Book Pages" id="book-page-input">
+        </div>
+
+        <div class="bookRead">
+            <h2>Book Read</h2>
+            <div class="bookReadTrue">
+                <label for="book-read-true-input">True : </label>
+                <input type="radio" name="BookRead" id="book-read-true-input" value="True" checked>
+            </div>
+            <div class="bookReadFalse">
+                <label for="book-read-false-input">False : </label>
+                <input type="radio" name="BookRead" id="book-read-false-input" value="False">
+            </div>
+        </div>
+
+        <div class="confirmCancel">
+            <h2 id="inputConfirm">Confirm</h2>
+            <h2 id="inputCancel">Cancel</h2>
+        </div>
+    </div>
+    <div id="blurBackground"></div>
+    <div id="container">
+        <div class="controls">
+            <div id="addBook" class="control"><h3>Add Book</h3></div>
+        </div>
+        <div id="library">
+            <h1 style="text-align: center;">Library</h1>
+            <div id="books">
+                <div class="book">
+                    <h2 class="book-name">Book Name</h2>
+                    <h4 class="book-author">Author : </h4>
+                    <h4 class="book-pages">Pages : </h4>
+                    <h4 class="book-read-status">Have Read : </h4>
+                    <div class="book-options"><h1 class="book-read">Read</h1><h1 class="book-delete">Delete</h1></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
